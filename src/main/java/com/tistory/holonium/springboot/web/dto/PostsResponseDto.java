@@ -12,9 +12,9 @@ public class PostsResponseDto {
 	private String author;
 	
 	public PostsResponseDto(Posts entity) {
-		this.id = id;
-		this.title = title;
-		this.author = author;
-		this.content = content;
+		this.id = entity.getId();
+		this.title = entity.getTitle();
+		this.author = entity.getAuthor();
+		this.content = entity.getContent();
 	}
 }
