@@ -38,7 +38,7 @@ public class PostsApiControllerTest {
 	}
 	
 	@Test
-	public void Posts_µî·ÏµÈ´Ù() throws Exception{
+	public void Posts_ì €ìž¥() throws Exception{
 		String title = "title";
 		String content = "content";
 		PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
@@ -60,7 +60,7 @@ public class PostsApiControllerTest {
 	}
 	
 	@Test
-	public void Posts_¼öÁ¤µÈ´Ù() throws Exception{
+	public void Posts_ìˆ˜ì •() throws Exception{
 		Posts savedPosts = postsRepository.save(Posts.builder()
 				.title("title")
 				.content("content")

@@ -2,6 +2,7 @@ package com.tistory.holonium.springboot.domain.posts;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
@@ -20,9 +21,9 @@ public class PostsRepositoryTest {
 		postsRepository.deleteAll();
 	}
 	@Test
-	public void °Ô½Ã±ÛÀúÀå_ºÒ·¯¿À±â() {
-		String title = "Å×½ºÆ® °Ô½Ã±Û";
-		String content = "Å×½ºÆ® º»¹®";
+	public void postRepository_ì €ìž¥() {
+		String title = "title";
+		String content = "content";
 		
 		postsRepository.save(Posts.builder()
 			.title(title)
@@ -35,5 +36,25 @@ public class PostsRepositoryTest {
 		Posts posts = postsList.get(0);
 		assertThat(posts.getTitle()).isEqualTo(title);
 		assertThat(posts.getContent()).isEqualTo(content);
+	}
+	
+	@Test
+	public void BaseTimeEntity_ì €ìž¥() {
+		
+		LocalDateTime now = LocalDateTime.of(2020,9,22,0,0,0);
+		postsRepository.save(Posts.builder()
+				.title("title")
+				.author("author")
+				.content("content")
+				.build());
+		
+		List<Posts> postsList = postsRepository.findAll();
+		
+		Posts posts = postsList.get(0);
+		
+		System.out.println(">>>>>>>>>>> createDate="+posts.getCreatedDate()+", modifiedDate = "+posts.getModifiedDate());
+		
+		assertThat(posts.getCreatedDate().isAfter(now));
+		assertThat(posts.getModifiedDate().isAfter(now));
 	}
 }
