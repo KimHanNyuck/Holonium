@@ -34,3 +34,5 @@ out/
 ### VS Code ###
 .vscode/
 .metadata/
+src/main/resources/application-oauth.properties
+bin/main/application-oauth.properties
